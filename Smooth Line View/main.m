@@ -6,12 +6,17 @@
 //  Copyright 2011 culturezoo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
+
+
+#import "AppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        int retVal = UIApplicationMain(argc, argv, nil, nil);
-        return retVal;
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

@@ -24,32 +24,36 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
 
-#import "Smooth_Line_ViewViewController.h"
+#import "SLViewController.h"
 
 #import <CoreMotion/CoreMotion.h>
 
-@interface Smooth_Line_ViewViewController ()
-@property (nonatomic) SmoothLineView * canvas;
+@interface SLViewController ()
+@property (strong, nonatomic) SLSmoothLineView *canvas;
 @end
 
-@implementation Smooth_Line_ViewViewController
+@implementation SLViewController
 
 - (void)viewDidLoad
 {
-  SmoothLineView * smoothLineView =[[SmoothLineView alloc] initWithFrame:self.view.bounds ];
-  self.canvas = smoothLineView;
-  [self.view addSubview:smoothLineView];
+    SLSmoothLineView *smoothLineView =[[SLSmoothLineView alloc] initWithFrame:self.view.bounds];
+    self.canvas = smoothLineView;
+    [self.view addSubview:smoothLineView];
 }
 
 -(BOOL)canBecomeFirstResponder {
-  return YES;
+    return YES;
 }
 
 -(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-  [self.canvas clear];
+    [self.canvas clear];
 }
+
+
 @end
-
-

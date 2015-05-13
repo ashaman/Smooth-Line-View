@@ -24,8 +24,13 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
 
 #import <UIKit/UIKit.h>
-#import "SmoothLineView.h"
+#import "SLSmoothLineView.h"
 
-@interface Smooth_Line_ViewViewController : UIViewController @end
+@interface SLViewController : UIViewController
+@end

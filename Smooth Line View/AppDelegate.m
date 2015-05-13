@@ -24,20 +24,22 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
-#import "Smooth_Line_ViewAppDelegate.h"
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
 
-#import "Smooth_Line_ViewViewController.h"
+#import "AppDelegate.h"
 
-@implementation Smooth_Line_ViewAppDelegate
+#import "SLViewController.h"
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    NSLog(@"Smooth Line Launched");
-    self.window.rootViewController = self.viewController;
+    application.applicationSupportsShakeToEdit = YES;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[SLViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }

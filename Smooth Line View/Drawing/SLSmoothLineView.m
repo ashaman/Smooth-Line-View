@@ -24,8 +24,13 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
-#import "SmoothLineView.h"
-#import <QuartzCore/QuartzCore.h>
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
+
+#import "SLSmoothLineView.h"
+@import QuartzCore;
 
 #define DEFAULT_COLOR               [UIColor blackColor]
 #define DEFAULT_WIDTH               5.0f
@@ -34,7 +39,7 @@
 static const CGFloat kPointMinDistance = 5.0f;
 static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDistance;
 
-@interface SmoothLineView ()
+@interface SLSmoothLineView ()
 @property (nonatomic,assign) CGPoint currentPoint;
 @property (nonatomic,assign) CGPoint previousPoint;
 @property (nonatomic,assign) CGPoint previousPreviousPoint;
@@ -43,7 +48,8 @@ static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDis
 CGPoint midPoint(CGPoint p1, CGPoint p2);
 @end
 
-@implementation SmoothLineView {
+@implementation SLSmoothLineView
+{
 @private
 	CGMutablePathRef _path;
 }
@@ -102,7 +108,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2);
 #pragma mark private Helper function
 
 CGPoint midPoint(CGPoint p1, CGPoint p2) {
-  return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
+  return CGPointMake((p1.x + p2.x) * 0.5f, (p1.y + p2.y) * 0.5f);
 }
 
 #pragma mark Touch event handlers
@@ -151,7 +157,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
   
   // compute the rect containing the new segment plus padding for drawn line
   CGRect bounds = CGPathGetBoundingBox(subpath);
-  CGRect drawBox = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth);
+  CGRect drawBox = CGRectInset(bounds, -2.0f * self.lineWidth, -2.0f * self.lineWidth);
   
   // append the quad curve to the accumulated path so far.
 	CGPathAddPath(_path, NULL, subpath);

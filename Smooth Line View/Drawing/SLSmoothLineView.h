@@ -24,14 +24,16 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
-#import <UIKit/UIKit.h>
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
 
-@class Smooth_Line_ViewViewController;
+@import UIKit;
 
-@interface Smooth_Line_ViewAppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic, strong) IBOutlet UIWindow *window;
-
-@property (nonatomic, strong) IBOutlet Smooth_Line_ViewViewController *viewController;
-
+@interface SLSmoothLineView : UIView
+@property (nonatomic, strong) UIColor *lineColor;
+@property (nonatomic, assign) CGFloat lineWidth;
+@property (nonatomic, assign) BOOL empty;
+- (void)clear;
 @end

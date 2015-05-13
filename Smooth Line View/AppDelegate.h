@@ -24,16 +24,13 @@
 //  Copyright (C) Droplr Inc. All Rights Reserved
 //
 
+//
+//  Portions of code and significant changes made by Yaroslav Vorontsov
+//  Copyright (C) Yaroslav Vorontsov. All Rights Reserved.
+//
+
 #import <UIKit/UIKit.h>
 
-
-
-@interface SmoothLineView : UIView 
-
-@property (nonatomic, strong) UIColor *lineColor;
-@property (nonatomic, assign) CGFloat lineWidth;
-@property (nonatomic, assign) BOOL empty;
-
--(void)clear;
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (nonatomic, strong) UIWindow *window;
 @end
