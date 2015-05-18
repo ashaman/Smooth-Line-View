@@ -32,8 +32,5 @@
 @import UIKit;
 
 @interface SLSmoothLineView : UIView
-@property (nonatomic, strong) UIColor *lineColor;
-@property (nonatomic, assign) CGFloat lineWidth;
-@property (nonatomic, assign) BOOL empty;
-- (void)clear;
+- (void)updateCanvasWithTools:(NSMutableArray *)tools inRect:(CGRect)rect;
 @end

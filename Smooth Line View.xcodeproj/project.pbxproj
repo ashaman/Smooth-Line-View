@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,8 +16,13 @@
 		6B93BE7B13F3374200DFAB23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B93BE7A13F3374200DFAB23 /* main.m */; };
 		D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */; };
 		D56103CFB473C84CC249048D /* SLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D561020E74329B7B73229CA2 /* SLViewController.xib */; };
+		D56103F57EED93465ECD8880 /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D56104C7E5A5FF9C1692308F /* TextDrawer.m */; };
+		D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D56109A0AEEB71787E2815B0 /* SLBrush.m */; };
 		D5610871E2544F0F603EAD35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D561080574F360639D9813E3 /* AppDelegate.m */; };
-		D5610B404F5D5BA9A17EFDCB /* SLSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D56108FFE2B894D9CFF2E884 /* SLSmoothLineView.m */; };
+		D56108D294FFAF9F5229FD33 /* SLEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = D561076540F91B0589A0FBCA /* SLEraser.m */; };
+		D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */; };
+		D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D561083F6B54AADF142CB62A /* SLSmoothLineView.m */; };
+		D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610821930034C24166B299 /* UIView+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +36,24 @@
 		6B93BE7813F3374200DFAB23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B93BE7A13F3374200DFAB23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B93BE7C13F3374200DFAB23 /* Smooth Line View-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smooth Line View-Prefix.pch"; sourceTree = "<group>"; };
-		D561002A60E62556260CEC7A /* SLSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSmoothLineView.h; sourceTree = "<group>"; };
+		D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMediaBoardViewController.m; sourceTree = "<group>"; };
+		D56101C6B7997A3A87DB5D00 /* SLMediaBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMediaBoardViewController.h; sourceTree = "<group>"; };
 		D56101D8755A4BA297053858 /* SLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLViewController.h; sourceTree = "<group>"; };
 		D561020E74329B7B73229CA2 /* SLViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SLViewController.xib; sourceTree = "<group>"; };
+		D56102EAE8BEAF39DE0731CA /* SLBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBrush.h; sourceTree = "<group>"; };
+		D56104C7E5A5FF9C1692308F /* TextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawer.m; sourceTree = "<group>"; };
+		D561076540F91B0589A0FBCA /* SLEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLEraser.m; sourceTree = "<group>"; };
+		D56107AC9D86B3B43F044AB6 /* SLRasterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRasterTool.h; sourceTree = "<group>"; };
 		D56107AEA868A2366AFC848B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D561080574F360639D9813E3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D56108FFE2B894D9CFF2E884 /* SLSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSmoothLineView.m; sourceTree = "<group>"; };
+		D5610821930034C24166B299 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		D561083F6B54AADF142CB62A /* SLSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSmoothLineView.m; sourceTree = "<group>"; };
+		D56109A0AEEB71787E2815B0 /* SLBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBrush.m; sourceTree = "<group>"; };
+		D5610ACB9DED9CA97B925A42 /* SLSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSmoothLineView.h; sourceTree = "<group>"; };
+		D5610ACE5DC6E245C29B871A /* TextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDrawer.h; sourceTree = "<group>"; };
+		D5610C00B1B343E8FC3DA81B /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLViewController.m; sourceTree = "<group>"; };
+		D5610F0BF56BAC46D811700D /* SLEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLEraser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,7 @@
 				6B93BE7513F3374200DFAB23 /* Supporting Files */,
 				D5610470CAE71E8F9A101137 /* Drawing */,
 				D5610CE9F05954E1D27BD948 /* Controllers */,
+				D56100A10ECDE8CA6F96C4E2 /* Categories */,
 			);
 			path = "Smooth Line View";
 			sourceTree = "<group>";
@@ -107,13 +124,68 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D56100A10ECDE8CA6F96C4E2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D5610C00B1B343E8FC3DA81B /* UIView+Additions.h */,
+				D5610821930034C24166B299 /* UIView+Additions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		D561026AD50E57D1EC09A303 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		D5610470CAE71E8F9A101137 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				D56108FFE2B894D9CFF2E884 /* SLSmoothLineView.m */,
-				D561002A60E62556260CEC7A /* SLSmoothLineView.h */,
+				D5610653371C5B75B663FF8E /* Tools */,
+				D561051F8977B360548362BA /* UI */,
 			);
 			path = Drawing;
+			sourceTree = "<group>";
+		};
+		D561051F8977B360548362BA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D5610F3C86A76C9592A8355D /* Drawing */,
+				D5610706B30C75266970D552 /* Host */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D5610653371C5B75B663FF8E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D5610DF556FF32CBEE3B89BB /* Eraser */,
+				D5610B60FECE43BF7870F158 /* Brush */,
+				D5610D47E4C2E7058399F97D /* Text */,
+				D561026AD50E57D1EC09A303 /* Image */,
+				D56107AC9D86B3B43F044AB6 /* SLRasterTool.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		D5610706B30C75266970D552 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */,
+				D56101C6B7997A3A87DB5D00 /* SLMediaBoardViewController.h */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
+		D5610B60FECE43BF7870F158 /* Brush */ = {
+			isa = PBXGroup;
+			children = (
+				D56102EAE8BEAF39DE0731CA /* SLBrush.h */,
+				D56109A0AEEB71787E2815B0 /* SLBrush.m */,
+			);
+			path = Brush;
 			sourceTree = "<group>";
 		};
 		D5610CE9F05954E1D27BD948 /* Controllers */ = {
@@ -124,6 +196,33 @@
 				D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D5610D47E4C2E7058399F97D /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				D5610ACE5DC6E245C29B871A /* TextDrawer.h */,
+				D56104C7E5A5FF9C1692308F /* TextDrawer.m */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		D5610DF556FF32CBEE3B89BB /* Eraser */ = {
+			isa = PBXGroup;
+			children = (
+				D5610F0BF56BAC46D811700D /* SLEraser.h */,
+				D561076540F91B0589A0FBCA /* SLEraser.m */,
+			);
+			path = Eraser;
+			sourceTree = "<group>";
+		};
+		D5610F3C86A76C9592A8355D /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				D561083F6B54AADF142CB62A /* SLSmoothLineView.m */,
+				D5610ACB9DED9CA97B925A42 /* SLSmoothLineView.h */,
+			);
+			path = Drawing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +251,17 @@
 		6B93BE6113F3374100DFAB23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SL;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = culturezoo;
+				ORGANIZATIONNAME = dataart;
+				TargetAttributes = {
+					6B93BE6913F3374200DFAB23 = {
+						DevelopmentTeam = G5EG5T3U3L;
+					};
+				};
 			};
 			buildConfigurationList = 6B93BE6413F3374100DFAB23 /* Build configuration list for PBXProject "Smooth Line View" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -192,8 +297,13 @@
 			files = (
 				6B93BE7B13F3374200DFAB23 /* main.m in Sources */,
 				D5610871E2544F0F603EAD35 /* AppDelegate.m in Sources */,
-				D5610B404F5D5BA9A17EFDCB /* SLSmoothLineView.m in Sources */,
 				D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */,
+				D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */,
+				D56108D294FFAF9F5229FD33 /* SLEraser.m in Sources */,
+				D56103F57EED93465ECD8880 /* TextDrawer.m in Sources */,
+				D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */,
+				D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */,
+				D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +340,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -249,7 +359,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -270,7 +380,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C4486A19-69DA-4716-9E18-6EB2EB68880F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -280,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smooth Line View/Smooth Line View-Prefix.pch";
 				GCC_VERSION = "";

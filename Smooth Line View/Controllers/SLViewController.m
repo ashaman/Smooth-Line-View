@@ -30,29 +30,20 @@
 //
 
 #import "SLViewController.h"
-
-#import <CoreMotion/CoreMotion.h>
-
-@interface SLViewController ()
-@property (strong, nonatomic) SLSmoothLineView *canvas;
-@end
+#import "SLMediaBoardViewController.h"
+#import "UIView+Additions.h"
 
 @implementation SLViewController
 
 - (void)viewDidLoad
 {
-    SLSmoothLineView *smoothLineView =[[SLSmoothLineView alloc] initWithFrame:self.view.bounds];
-    self.canvas = smoothLineView;
-    [self.view addSubview:smoothLineView];
-}
+    [super viewDidLoad];
+    SLMediaBoardViewController *boardViewController = [SLMediaBoardViewController new];
+    [self addChildViewController:boardViewController];
+    [self.view addSubview:boardViewController.view];
+    [boardViewController.view pinToSuperview];
+    [boardViewController didMoveToParentViewController:self];
 
--(BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    [self.canvas clear];
 }
 
 
