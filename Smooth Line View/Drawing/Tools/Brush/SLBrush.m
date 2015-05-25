@@ -27,6 +27,7 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
     CGPoint _point3;
     CGFloat _lineWidth;
     CGMutablePathRef _path;
+    CGMutablePathRef _fullPath;
 }
 @synthesize bezierControlPoint = _point2;
 @synthesize touchLocation = _point3, previousTouchLocation = _point1;
@@ -43,8 +44,17 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
         _point3 = controlPoint;
         _lineWidth = lineWidth;
         _lineColor = color;
+        _fullPath = CGPathCreateMutable();
     }
     return self;
+}
+
+- (void)dealloc
+{
+    if (_path)
+        CGPathRelease(_path);
+    CGPathRelease(_fullPath);
+    NSLog(@"Brush instance has been deallocated");
 }
 
 - (void)setPreviousTouchLocation:(CGPoint)location
@@ -66,6 +76,7 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
         _path = CGPathCreateMutable();
         CGPathMoveToPoint(_path, NULL, self.bezierPoint1.x, self.bezierPoint1.y);
         CGPathAddQuadCurveToPoint(_path, NULL, self.bezierControlPoint.x, self.bezierControlPoint.y, self.bezierPoint2.x, self.bezierPoint2.y);
+        CGPathAddPath(_fullPath, NULL, _path);
     }
     return _path;
 }
@@ -73,19 +84,28 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
 - (CGRect)boundingBox
 {
     // compute the rect containing the new segment plus padding for drawn line
-    return CGRectInset(CGPathGetBoundingBox(self.path), - _lineWidth * 2, - _lineWidth * 2);
+    return CGRectInset(CGPathGetBoundingBox(self.path), - _lineWidth, - _lineWidth);
 }
 
 - (void)drawInContext:(CGContextRef)context
 {
     CGContextSaveGState(context); {
         CGContextSetStrokeColorWithColor(context, _lineColor.CGColor);
-        if (self.commitDrawing && CGPointEqualToPoint(_initialPoint, _point3)) {
-            // One-point touch
-            CGPoint location = CGPointMake(_initialPoint.x - _lineWidth / 2.0f, _initialPoint.y - _lineWidth / 2.0f);
-            CGRect frame = (CGRect){ location, CGSizeMake(_lineWidth, _lineWidth)};
-            CGContextFillEllipseInRect(context, frame);
+        if (self.commitDrawing) {
+            if (CGPointEqualToPoint(_initialPoint, _point3)) {
+                // One-point touch
+                CGPoint location = CGPointMake(_initialPoint.x - _lineWidth / 2.0f, _initialPoint.y - _lineWidth / 2.0f);
+                CGRect frame = (CGRect){ location, CGSizeMake(_lineWidth, _lineWidth)};
+                CGContextFillEllipseInRect(context, frame);
+            } else {
+                // Full redraw - once committed
+                CGContextAddPath(context, _fullPath);
+                CGContextSetLineCap(context, kCGLineCapRound);
+                CGContextSetLineWidth(context, _lineWidth);
+                CGContextStrokePath(context);
+            }
         } else {
+            // Partial drawing
             CGContextAddPath(context, self.path);
             CGContextSetLineCap(context, kCGLineCapRound);
             CGContextSetLineWidth(context, _lineWidth);

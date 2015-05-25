@@ -34,8 +34,9 @@
 
 
 @interface SLSmoothLineView ()
-@property(strong, nonatomic) NSArray *drawingTools;
-@property(strong, nonatomic) UIImage *incrementalImage;
+@property (strong, nonatomic) NSArray *drawingTools;
+@property (strong, nonatomic) UIImage *incrementalImage;
+@property (assign, nonatomic) BOOL clearCanvas;
 @end
 
 @implementation SLSmoothLineView
@@ -58,16 +59,21 @@
 */
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.incrementalImage drawAtPoint:CGPointMake(0, 0)];
-    [self.layer renderInContext:context];
-    // Drawing all primitives where necessary
-    for (id<SLRasterTool> tool in self.drawingTools) {
-        [tool drawInContext:context];
+    if (self.clearCanvas) {
+        [self.backgroundColor set];
+        UIRectFill(rect);
+        self.clearCanvas = NO;
+    } else {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [self.incrementalImage drawAtPoint:CGPointMake(0, 0)];
+        [self.layer renderInContext:context];
+        // Drawing all primitives where necessary
+        for (id<SLRasterTool> tool in self.drawingTools) {
+            [tool drawInContext:context];
+        }
     }
     [super drawRect:rect];
 }
-
 
 - (void)updateCanvasWithTools:(NSMutableArray *)tools inRect:(CGRect)drawBox
 {
@@ -77,6 +83,12 @@
     self.incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     [self setNeedsDisplayInRect:drawBox];
+}
+
+- (void)clear
+{
+    self.clearCanvas = YES;
+    [self setNeedsDisplay];
 }
 
 @end

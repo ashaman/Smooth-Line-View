@@ -18,9 +18,9 @@
 
 
 @protocol SLRasterTool <NSObject>
-@property(assign, nonatomic, readonly) CGRect boundingBox;
-@property(assign, nonatomic) CGPoint previousTouchLocation;
-@property(assign, nonatomic) CGPoint touchLocation;
-@property(assign, nonatomic) BOOL commitDrawing;
+@property (assign, nonatomic, readonly) CGRect boundingBox;
+@property (assign, nonatomic) CGPoint previousTouchLocation;
+@property (assign, nonatomic) CGPoint touchLocation;
+@property (assign, nonatomic) BOOL commitDrawing;
 - (void)drawInContext:(CGContextRef)context;
 @end

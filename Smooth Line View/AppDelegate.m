@@ -39,7 +39,10 @@
 {
     application.applicationSupportsShakeToEdit = YES;
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[SLViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[SLViewController new]];
+    navigationController.navigationBarHidden = YES;
+    navigationController.toolbarHidden = NO;
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

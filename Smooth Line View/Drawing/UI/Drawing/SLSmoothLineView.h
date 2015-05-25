@@ -33,4 +33,5 @@
 
 @interface SLSmoothLineView : UIView
 - (void)updateCanvasWithTools:(NSMutableArray *)tools inRect:(CGRect)rect;
+- (void)clear;
 @end

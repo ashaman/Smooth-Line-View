@@ -23,6 +23,7 @@
 		D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */; };
 		D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D561083F6B54AADF142CB62A /* SLSmoothLineView.m */; };
 		D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610821930034C24166B299 /* UIView+Additions.m */; };
+		DD29DDB01B137DA00010B9AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD29DDAF1B137DA00010B9AB /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D5610C00B1B343E8FC3DA81B /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLViewController.m; sourceTree = "<group>"; };
 		D5610F0BF56BAC46D811700D /* SLEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLEraser.h; sourceTree = "<group>"; };
+		DD29DDAF1B137DA00010B9AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				D5610470CAE71E8F9A101137 /* Drawing */,
 				D5610CE9F05954E1D27BD948 /* Controllers */,
 				D56100A10ECDE8CA6F96C4E2 /* Categories */,
+				DD29DDAF1B137DA00010B9AB /* Images.xcassets */,
 			);
 			path = "Smooth Line View";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B93BE7913F3374200DFAB23 /* InfoPlist.strings in Resources */,
+				DD29DDB01B137DA00010B9AB /* Images.xcassets in Resources */,
 				5EF58F54189D8AF40024C782 /* Default-568h@2x.png in Resources */,
 				D56103CFB473C84CC249048D /* SLViewController.xib in Resources */,
 			);
@@ -370,6 +374,8 @@
 		6B93BE8C13F3374200DFAB23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -389,6 +395,8 @@
 		6B93BE8D13F3374200DFAB23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
