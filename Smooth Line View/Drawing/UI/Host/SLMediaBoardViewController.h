@@ -7,12 +7,13 @@
 
 typedef enum
 {
+    SLEraserDrawing = -1,
     SLBrushDrawing = 0,
     SLLineDrawing,
-    SLEllipseDrawing,
     SLRectangleDrawing,
+    SLEllipseDrawing,
+    SLImageDrawing,
     SLTextDrawing,
-    SLEraserDrawing
 } SLDrawingMode;
 
 @interface SLMediaBoardViewController : UIViewController

@@ -44,38 +44,17 @@
 
 
 @implementation SLTextDrawer
-{
-    CGPoint _initialPoint;
-    CGFloat _lineWidth;
-}
 @synthesize previousTouchLocation, touchLocation, commitDrawing;
 
 - (instancetype)initWithControlPoint:(CGPoint)controlPoint font:(UIFont *)font
 {
-    if ((self = [super init])) {
-        _initialPoint = controlPoint;
-        _lineWidth = 1.0f;
+    if ((self = [super initWithControlPoint:controlPoint])) {
+        self.strokeWidth = 1.0f;
         self.font = font;
-        self.color = [UIColor blackColor];
+        self.strokeColor = [UIColor blackColor];
         self.text = @"Just for test and fun :)";
     }
     return self;
-}
-
-//- (CGRect)previousBoundingBox
-//{
-//    return CGRectMake(MIN(_initialPoint.x, self.previousTouchLocation.x),
-//            MIN(_initialPoint.y, self.previousTouchLocation.y),
-//            FABS(_initialPoint.x - self.previousTouchLocation.x),
-//            FABS(_initialPoint.y - self.previousTouchLocation.y));
-//}
-
-- (CGRect)boundingBox
-{
-    return CGRectMake(MIN(_initialPoint.x, self.touchLocation.x),
-            MIN(_initialPoint.y, self.touchLocation.y),
-            FABS(_initialPoint.x - self.touchLocation.x),
-            FABS(_initialPoint.y - self.touchLocation.y));
 }
 
 - (void)drawInContext:(CGContextRef)context
@@ -88,9 +67,9 @@
             [self.text drawInRect:self.boundingBox withAttributes:attributes];
         } else {
             // Draw the bounding rect
-            [self.color setStroke];
+            [self.strokeColor setStroke];
             CGContextSetLineCap(context, kCGLineCapRound);
-            CGContextSetLineWidth(context, _lineWidth);
+            CGContextSetLineWidth(context, self.strokeWidth);
             CGContextStrokeRect(context, self.boundingBox);
         }
     } CGContextRestoreGState(context);

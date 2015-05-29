@@ -9,11 +9,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SLRasterTool.h"
+#import "SLGeometryPrimitive.h"
 
 
-@interface SLTextDrawer : NSObject <SLRasterTool>
+@interface SLTextDrawer : SLGeometryPrimitive
 @property (strong, nonatomic) UIFont *font;
-@property (strong, nonatomic) UIColor *color;
 @property (copy, nonatomic) NSString *text;
 - (instancetype)initWithControlPoint:(CGPoint)controlPoint font:(UIFont *)font;
 @end

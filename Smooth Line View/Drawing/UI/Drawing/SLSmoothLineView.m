@@ -89,7 +89,12 @@
 #endif
 }
 
-- (void)updateCanvasWithTools:(NSMutableArray *)tools inRect:(CGRect)drawBox
+- (void)updateCanvasWithTools:(NSMutableArray *)tools
+#if INCREMENTAL_DRAWING
+                       inRect:(CGRect)drawBox
+#else
+                       inRect:(CGRect __unused)drawBox
+#endif
 {
 #if INCREMENTAL_DRAWING
     self.drawingTools = tools;
@@ -100,7 +105,7 @@
     [self setNeedsDisplayInRect:drawBox];
 #else
     self.drawingTools = tools;
-    [self setNeedsDisplayInRect:drawBox];
+    [self setNeedsDisplay];
     // Determining if tools are committed.
     // Since they're changed altogether, it's enough to check the 1st value in the array
     if ([self.drawingTools.firstObject commitDrawing]) {

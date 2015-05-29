@@ -10,6 +10,10 @@
 #import "SLEraser.h"
 #import "UIView+Additions.h"
 #import "SLTextDrawer.h"
+#import "SLLine.h"
+#import "SLRectangle.h"
+#import "SLEllipse.h"
+#import "SLImage.h"
 
 @interface SLMediaBoardViewController()
 @property (strong, nonatomic) NSMapTable *toolContext;
@@ -79,7 +83,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -146,7 +149,6 @@
 {
 }
 
-
 #pragma mark - Handling shakes
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -177,16 +179,42 @@
 
 #pragma mark - Helper methods
 
+- (void)setDrawingMode:(SLDrawingMode)drawingMode
+{
+    if (_drawingMode != drawingMode) {
+        _drawingMode = drawingMode;
+        // Multi-touch is available only for eraser and brush.
+        self.canvasView.multipleTouchEnabled = drawingMode <= SLBrushDrawing;
+    }
+}
+
+// Factory method to create tool based on the selected option
 - (id<SLRasterTool>)createToolWithControlPoint:(CGPoint)controlPoint
 {
     id<SLRasterTool> rasterTool = nil;
     switch (_drawingMode) {
+        case SLEraserDrawing: {
+            rasterTool = [[SLEraser alloc] initWithLineWidth:self.strokeSize.width initialPoint:controlPoint];
+            break;
+        }
         case SLBrushDrawing: {
             rasterTool = [[SLBrush alloc] initWithControlPoint:controlPoint lineWidth:self.strokeSize.width color:self.strokeColor];
             break;
         }
-        case SLEraserDrawing: {
-            rasterTool = [[SLEraser alloc] initWithLineWidth:self.strokeSize.width initialPoint:controlPoint];
+        case SLLineDrawing: {
+            rasterTool = [[SLLine alloc] initWithControlPoint:controlPoint lineWidth:self.strokeSize.width strokeColor:self.strokeColor];
+            break;
+        }
+        case SLRectangleDrawing: {
+            rasterTool = [[SLRectangle alloc] initWithControlPoint:controlPoint lineWidth:self.strokeSize.width strokeColor:self.strokeColor];
+            break;
+        }
+        case SLEllipseDrawing: {
+            rasterTool = [[SLEllipse alloc] initWithControlPoint:controlPoint lineWidth:self.strokeSize.width strokeColor:self.strokeColor];
+            break;
+        }
+        case SLImageDrawing: {
+            rasterTool = [[SLImage alloc] initWithControlPoint:controlPoint image:[UIImage imageNamed:@"Brush"]];
             break;
         }
         case SLTextDrawing: {
