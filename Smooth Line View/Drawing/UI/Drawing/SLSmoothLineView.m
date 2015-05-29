@@ -32,13 +32,23 @@
 #import "SLSmoothLineView.h"
 #import "SLRasterTool.h"
 
-
 @interface SLSmoothLineView ()
 @property (strong, nonatomic) NSArray *drawingTools;
+#if INCREMENTAL_DRAWING
 @property (strong, nonatomic) UIImage *incrementalImage;
 @property (assign, nonatomic) BOOL clearCanvas;
+#else
+@property (strong, nonatomic) UIImage *fullImage;
+#endif
 @end
 
+/**
+* This view is backed up by a bitmap cache (UIImage)
+* Idea is taken from ACEDrawingView - https://github.com/acerbetti/ACEDrawingView
+*
+* Initial incremental drawing has some issues inside (already drawn lines become thicker by some reason) - need to
+* investigate them. Moreover, bitmap-backed implementation is better for resizable rectangles/lines/ellipses/etc.
+*/
 @implementation SLSmoothLineView
 {
 }
@@ -59,35 +69,80 @@
 */
 - (void)drawRect:(CGRect)rect
 {
+#if INCREMENTAL_DRAWING
     if (self.clearCanvas) {
+        // Clear mode
         [self.backgroundColor set];
         UIRectFill(rect);
         self.clearCanvas = NO;
     } else {
+        // Ordinary drawing mode - partial update
         CGContextRef context = UIGraphicsGetCurrentContext();
         [self.incrementalImage drawAtPoint:CGPointMake(0, 0)];
         [self.layer renderInContext:context];
-        // Drawing all primitives where necessary
-        for (id<SLRasterTool> tool in self.drawingTools) {
-            [tool drawInContext:context];
-        }
+        [self drawWithTools];
     }
-    [super drawRect:rect];
+#else
+    // Ordinary drawing mode - full image
+    [self.fullImage drawInRect:self.bounds];
+    [self drawWithTools];
+#endif
 }
 
 - (void)updateCanvasWithTools:(NSMutableArray *)tools inRect:(CGRect)drawBox
 {
+#if INCREMENTAL_DRAWING
     self.drawingTools = tools;
     UIGraphicsBeginImageContext(drawBox.size);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     self.incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     [self setNeedsDisplayInRect:drawBox];
+#else
+    self.drawingTools = tools;
+    [self setNeedsDisplayInRect:drawBox];
+    // Determining if tools are committed.
+    // Since they're changed altogether, it's enough to check the 1st value in the array
+    if ([self.drawingTools.firstObject commitDrawing]) {
+        [self updateBitmapWithInvalidation:NO];
+    }
+#endif
+}
+
+- (void)updateBitmapWithInvalidation:(BOOL)redraw
+{
+    // Image context
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    if (redraw) {
+        // Erase the previous image and redraw all lines
+        self.fullImage = nil;
+    } else {
+        // set the draw point
+        [self.fullImage drawAtPoint:CGPointZero];
+    }
+    // apply the tools and store the image
+    [self drawWithTools];
+    self.fullImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+}
+
+- (void)drawWithTools
+{
+    // Drawing all primitives
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    for (id<SLRasterTool> tool in self.drawingTools) {
+        [tool drawInContext:context];
+    }
 }
 
 - (void)clear
 {
+#if INCREMENTAL_DRAWING
     self.clearCanvas = YES;
+#else
+    self.drawingTools = nil;
+    [self updateBitmapWithInvalidation:YES];
+#endif
     [self setNeedsDisplay];
 }
 

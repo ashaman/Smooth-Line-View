@@ -16,7 +16,6 @@
 *   3. http://www.effectiveui.com/blog/2011/12/02/how-to-build-a-simple-painting-app-for-ios/
 */
 
-
 @protocol SLRasterTool <NSObject>
 @property (assign, nonatomic, readonly) CGRect boundingBox;
 @property (assign, nonatomic) CGPoint previousTouchLocation;

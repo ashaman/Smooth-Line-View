@@ -8,7 +8,7 @@
 
 #import "SLBrush.h"
 
-static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
+static inline CGPoint CGMidPoint(CGPoint p1, CGPoint p2) {
     return CGPointMake((p1.x + p2.x) * 0.5f, (p1.y + p2.y) * 0.5f);
 }
 
@@ -61,13 +61,13 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
 {
     _point1 = _point2;
     _point2 = location;
-    _bezierPoint1 = midPoint(_point1, _point2);
+    _bezierPoint1 = CGMidPoint(_point1, _point2);
 }
 
 - (void)setTouchLocation:(CGPoint)location
 {
     _point3 = location;
-    _bezierPoint2 = midPoint(_point2, _point3);
+    _bezierPoint2 = CGMidPoint(_point2, _point3);
 }
 
 - (CGPathRef)path
@@ -105,8 +105,12 @@ static inline CGPoint midPoint(CGPoint p1, CGPoint p2) {
                 CGContextStrokePath(context);
             }
         } else {
-            // Partial drawing
+            // Partial or full drawing
+#if INCREMENTAL_DRAWING
             CGContextAddPath(context, self.path);
+#else
+            CGContextAddPath(context, _fullPath);
+#endif
             CGContextSetLineCap(context, kCGLineCapRound);
             CGContextSetLineWidth(context, _lineWidth);
             CGContextStrokePath(context);

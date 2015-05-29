@@ -9,6 +9,7 @@
 #import "SLBrush.h"
 #import "SLEraser.h"
 #import "UIView+Additions.h"
+#import "SLTextDrawer.h"
 
 @interface SLMediaBoardViewController()
 @property (strong, nonatomic) NSMapTable *toolContext;
@@ -48,7 +49,7 @@
 {
     self.toolContext = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsWeakMemory valueOptions:NSPointerFunctionsStrongMemory];
     self.usedTools = [NSMutableArray arrayWithCapacity:100];
-    self.drawingMode = SLLineDrawing;
+    self.drawingMode = SLBrushDrawing;
     self.strokeColor = [UIColor blackColor];
     self.strokeSize = CGSizeMake(10, 10);
 }
@@ -97,12 +98,12 @@
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
                                                                  action:@selector(toolSelected:)];
-    brushItem.tag = SLLineDrawing;
+    brushItem.tag = SLBrushDrawing;
     UIBarButtonItem *eraserItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Eraser"]
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(toolSelected:)];
-    eraserItem.tag = SLErasing;
+    eraserItem.tag = SLEraserDrawing;
 
 
     [self setToolbarItems:@[undoItem, redoItem, brushItem, eraserItem] animated:YES];
@@ -151,8 +152,7 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion == UIEventSubtypeMotionShake) {
-        self.undoRedoInvoked = YES;
-        [self.undoManager undo];
+        [self undoAction];
     }
 }
 
@@ -160,11 +160,14 @@
 
 - (void)undoAction
 {
+    self.undoRedoInvoked = YES;
+    [self.undoManager undo];
 }
 
 - (void)redoAction
 {
-
+    self.undoRedoInvoked = YES;
+    [self.undoManager redo];
 }
 
 - (void)toolSelected:(UIBarButtonItem *)sender
@@ -177,17 +180,17 @@
 - (id<SLRasterTool>)createToolWithControlPoint:(CGPoint)controlPoint
 {
     id<SLRasterTool> rasterTool = nil;
-    switch (_drawingMode)
-    {
-        case SLLineDrawing:
-        {
+    switch (_drawingMode) {
+        case SLBrushDrawing: {
             rasterTool = [[SLBrush alloc] initWithControlPoint:controlPoint lineWidth:self.strokeSize.width color:self.strokeColor];
             break;
         }
-        case SLErasing:
-        {
+        case SLEraserDrawing: {
             rasterTool = [[SLEraser alloc] initWithLineWidth:self.strokeSize.width initialPoint:controlPoint];
             break;
+        }
+        case SLTextDrawing: {
+            rasterTool = [[SLTextDrawer alloc] initWithControlPoint:controlPoint font:[UIFont systemFontOfSize:20]];
         }
         default:
             break;

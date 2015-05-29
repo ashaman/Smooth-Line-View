@@ -16,13 +16,16 @@
 		6B93BE7B13F3374200DFAB23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B93BE7A13F3374200DFAB23 /* main.m */; };
 		D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */; };
 		D56103CFB473C84CC249048D /* SLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D561020E74329B7B73229CA2 /* SLViewController.xib */; };
-		D56103F57EED93465ECD8880 /* TextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D56104C7E5A5FF9C1692308F /* TextDrawer.m */; };
+		D56103F57EED93465ECD8880 /* SLTextDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D56104C7E5A5FF9C1692308F /* SLTextDrawer.m */; };
+		D561044E4BF1D84FF944AC24 /* SLLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610F50D2FF46901A9DC747 /* SLLine.m */; };
 		D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D56109A0AEEB71787E2815B0 /* SLBrush.m */; };
 		D5610871E2544F0F603EAD35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D561080574F360639D9813E3 /* AppDelegate.m */; };
 		D56108D294FFAF9F5229FD33 /* SLEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = D561076540F91B0589A0FBCA /* SLEraser.m */; };
 		D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */; };
 		D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D561083F6B54AADF142CB62A /* SLSmoothLineView.m */; };
 		D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610821930034C24166B299 /* UIView+Additions.m */; };
+		D5610F6ADC11394325246E49 /* SLEllipse.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610E6D19EF254E167C51C3 /* SLEllipse.m */; };
+		D5610FD450F95389CE4B44A4 /* SLRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CC6A897983D7A0B829A /* SLRectangle.m */; };
 		DD29DDB01B137DA00010B9AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD29DDAF1B137DA00010B9AB /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +45,8 @@
 		D56101D8755A4BA297053858 /* SLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLViewController.h; sourceTree = "<group>"; };
 		D561020E74329B7B73229CA2 /* SLViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SLViewController.xib; sourceTree = "<group>"; };
 		D56102EAE8BEAF39DE0731CA /* SLBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBrush.h; sourceTree = "<group>"; };
-		D56104C7E5A5FF9C1692308F /* TextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDrawer.m; sourceTree = "<group>"; };
+		D56104979288BE2866159792 /* SLLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLine.h; sourceTree = "<group>"; };
+		D56104C7E5A5FF9C1692308F /* SLTextDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTextDrawer.m; sourceTree = "<group>"; };
 		D561076540F91B0589A0FBCA /* SLEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLEraser.m; sourceTree = "<group>"; };
 		D56107AC9D86B3B43F044AB6 /* SLRasterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRasterTool.h; sourceTree = "<group>"; };
 		D56107AEA868A2366AFC848B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,10 +55,15 @@
 		D561083F6B54AADF142CB62A /* SLSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSmoothLineView.m; sourceTree = "<group>"; };
 		D56109A0AEEB71787E2815B0 /* SLBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBrush.m; sourceTree = "<group>"; };
 		D5610ACB9DED9CA97B925A42 /* SLSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSmoothLineView.h; sourceTree = "<group>"; };
-		D5610ACE5DC6E245C29B871A /* TextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDrawer.h; sourceTree = "<group>"; };
+		D5610ACE5DC6E245C29B871A /* SLTextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextDrawer.h; sourceTree = "<group>"; };
+		D5610BF5D76FD2E5E048E2D2 /* SLRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRectangle.h; sourceTree = "<group>"; };
 		D5610C00B1B343E8FC3DA81B /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		D5610CC6A897983D7A0B829A /* SLRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRectangle.m; sourceTree = "<group>"; };
 		D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLViewController.m; sourceTree = "<group>"; };
+		D5610E6D19EF254E167C51C3 /* SLEllipse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLEllipse.m; sourceTree = "<group>"; };
 		D5610F0BF56BAC46D811700D /* SLEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLEraser.h; sourceTree = "<group>"; };
+		D5610F50D2FF46901A9DC747 /* SLLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLine.m; sourceTree = "<group>"; };
+		D5610FD8F921F3E998382D34 /* SLEllipse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLEllipse.h; sourceTree = "<group>"; };
 		DD29DDAF1B137DA00010B9AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +178,7 @@
 				D5610D47E4C2E7058399F97D /* Text */,
 				D561026AD50E57D1EC09A303 /* Image */,
 				D56107AC9D86B3B43F044AB6 /* SLRasterTool.h */,
+				D5610D65D6BC95149277351D /* Figure */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -204,10 +214,23 @@
 		D5610D47E4C2E7058399F97D /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				D5610ACE5DC6E245C29B871A /* TextDrawer.h */,
-				D56104C7E5A5FF9C1692308F /* TextDrawer.m */,
+				D5610ACE5DC6E245C29B871A /* SLTextDrawer.h */,
+				D56104C7E5A5FF9C1692308F /* SLTextDrawer.m */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		D5610D65D6BC95149277351D /* Figure */ = {
+			isa = PBXGroup;
+			children = (
+				D5610CC6A897983D7A0B829A /* SLRectangle.m */,
+				D5610BF5D76FD2E5E048E2D2 /* SLRectangle.h */,
+				D5610E6D19EF254E167C51C3 /* SLEllipse.m */,
+				D5610FD8F921F3E998382D34 /* SLEllipse.h */,
+				D5610F50D2FF46901A9DC747 /* SLLine.m */,
+				D56104979288BE2866159792 /* SLLine.h */,
+			);
+			path = Figure;
 			sourceTree = "<group>";
 		};
 		D5610DF556FF32CBEE3B89BB /* Eraser */ = {
@@ -304,10 +327,13 @@
 				D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */,
 				D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */,
 				D56108D294FFAF9F5229FD33 /* SLEraser.m in Sources */,
-				D56103F57EED93465ECD8880 /* TextDrawer.m in Sources */,
+				D56103F57EED93465ECD8880 /* SLTextDrawer.m in Sources */,
 				D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */,
 				D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */,
 				D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */,
+				D5610FD450F95389CE4B44A4 /* SLRectangle.m in Sources */,
+				D5610F6ADC11394325246E49 /* SLEllipse.m in Sources */,
+				D561044E4BF1D84FF944AC24 /* SLLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +362,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+					"INCREMENTAL_DRAWING=0",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -359,6 +386,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"INCREMENTAL_DRAWING=0",
+					"$(inherited)",
+				);
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
