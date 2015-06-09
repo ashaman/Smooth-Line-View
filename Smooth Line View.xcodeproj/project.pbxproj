@@ -14,6 +14,11 @@
 		6B93BE7313F3374200DFAB23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B93BE7213F3374200DFAB23 /* CoreGraphics.framework */; };
 		6B93BE7913F3374200DFAB23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B93BE7713F3374200DFAB23 /* InfoPlist.strings */; };
 		6B93BE7B13F3374200DFAB23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B93BE7A13F3374200DFAB23 /* main.m */; };
+		7F6162431B27345900852446 /* SLScreenCaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6162421B27345900852446 /* SLScreenCaptureView.m */; };
+		7F6162451B2734A100852446 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6162441B2734A100852446 /* CoreVideo.framework */; };
+		7F6162471B2734B100852446 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6162461B2734B100852446 /* CoreMedia.framework */; };
+		7F6162491B2734C300852446 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6162481B2734C300852446 /* AVFoundation.framework */; };
+		7F61624B1B2734CF00852446 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F61624A1B2734CF00852446 /* AssetsLibrary.framework */; };
 		D561005F322D94543107BB0E /* SLGeometryPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610774B8B48A45004039D3 /* SLGeometryPrimitive.m */; };
 		D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */; };
 		D561038866FD85B9188EE634 /* SLLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D56107A687D6D29D443F6690 /* SLLine.m */; };
@@ -42,6 +47,12 @@
 		6B93BE7813F3374200DFAB23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B93BE7A13F3374200DFAB23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B93BE7C13F3374200DFAB23 /* Smooth Line View-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smooth Line View-Prefix.pch"; sourceTree = "<group>"; };
+		7F6162411B27345900852446 /* SLScreenCaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLScreenCaptureView.h; sourceTree = "<group>"; };
+		7F6162421B27345900852446 /* SLScreenCaptureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLScreenCaptureView.m; sourceTree = "<group>"; };
+		7F6162441B2734A100852446 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		7F6162461B2734B100852446 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7F6162481B2734C300852446 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7F61624A1B2734CF00852446 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D5610048F094636BFBE2F4FE /* SLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLImage.m; sourceTree = "<group>"; };
 		D5610077D6171FBB2A56542A /* SLTextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextDrawer.h; sourceTree = "<group>"; };
 		D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMediaBoardViewController.m; sourceTree = "<group>"; };
@@ -78,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F61624B1B2734CF00852446 /* AssetsLibrary.framework in Frameworks */,
+				7F6162491B2734C300852446 /* AVFoundation.framework in Frameworks */,
+				7F6162471B2734B100852446 /* CoreMedia.framework in Frameworks */,
+				7F6162451B2734A100852446 /* CoreVideo.framework in Frameworks */,
 				6B8244E614E0FF67007F2487 /* QuartzCore.framework in Frameworks */,
 				6B93BE6F13F3374200DFAB23 /* UIKit.framework in Frameworks */,
 				6B93BE7113F3374200DFAB23 /* Foundation.framework in Frameworks */,
@@ -109,6 +124,10 @@
 		6B93BE6D13F3374200DFAB23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F61624A1B2734CF00852446 /* AssetsLibrary.framework */,
+				7F6162481B2734C300852446 /* AVFoundation.framework */,
+				7F6162461B2734B100852446 /* CoreMedia.framework */,
+				7F6162441B2734A100852446 /* CoreVideo.framework */,
 				6B250CCF13FA2127002A5D9D /* QuartzCore.framework */,
 				6B93BE6E13F3374200DFAB23 /* UIKit.framework */,
 				6B93BE7013F3374200DFAB23 /* Foundation.framework */,
@@ -192,6 +211,8 @@
 		D5610706B30C75266970D552 /* Host */ = {
 			isa = PBXGroup;
 			children = (
+				7F6162411B27345900852446 /* SLScreenCaptureView.h */,
+				7F6162421B27345900852446 /* SLScreenCaptureView.m */,
 				D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */,
 				D56101C6B7997A3A87DB5D00 /* SLMediaBoardViewController.h */,
 			);
@@ -361,6 +382,7 @@
 				D561038866FD85B9188EE634 /* SLLine.m in Sources */,
 				D5610ED52D0ABC914CDB9A6B /* SLEllipse.m in Sources */,
 				D56109D7B9CAA29047B59CC7 /* SLRectangle.m in Sources */,
+				7F6162431B27345900852446 /* SLScreenCaptureView.m in Sources */,
 				D561060B8D85CDBB2726F56D /* SLImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
