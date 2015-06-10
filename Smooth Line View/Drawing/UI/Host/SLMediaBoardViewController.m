@@ -15,8 +15,9 @@
 #import "SLEllipse.h"
 #import "SLImage.h"
 #import "UIBarButtonItem+Additions.h"
+#import "SLScreenCaptureView.h"
 
-@interface SLMediaBoardViewController()
+@interface SLMediaBoardViewController() <SLScreenCaptureViewDelegate>
 // Contexts and tools
 @property (strong, nonatomic) NSMapTable *toolContext;
 @property (strong, nonatomic) NSMutableArray *usedTools;
@@ -24,6 +25,7 @@
 // Views
 @property (weak, nonatomic) UIImageView *backgroundImageView;
 @property (weak, nonatomic) SLSmoothLineView *canvasView;
+@property (weak, nonatomic) SLScreenCaptureView *captureView;
 // Toolbar buttons
 @property (weak, nonatomic) UIBarButtonItem *undoItem;
 @property (weak, nonatomic) UIBarButtonItem *redoItem;
@@ -71,6 +73,11 @@
 {
     self.view = [UIView new];
     self.view.backgroundColor = [UIColor whiteColor];
+    SLScreenCaptureView *captureView = [SLScreenCaptureView new];
+    captureView.delegate = self;
+    captureView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:captureView];
+    [captureView pinToSuperview];
     // Canvas view for drawing
     SLSmoothLineView *canvasView = [SLSmoothLineView new];
     canvasView.multipleTouchEnabled = YES;
@@ -78,12 +85,13 @@
     // Background view for image selection
     UIImageView *backgroundView = [UIImageView new];
     backgroundView.backgroundColor = [UIColor clearColor];
-    // Pinning subviews
-    [self.view addSubview:backgroundView];
+    // Adding subviews
+    [captureView addSubview:backgroundView];
     [backgroundView pinToSuperview];
-    [self.view addSubview:canvasView];
+    [captureView addSubview:canvasView];
     [canvasView pinToSuperview];
     self.backgroundImageView = backgroundView;
+    self.captureView = captureView;
     self.canvasView = canvasView;
 }
 
@@ -155,15 +163,19 @@
     [self updateUndoRedoItems];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     NSLog(@"Media view is prepared for use");
+    
+    //capture 5 sec video 
+    [self.captureView startRecording];
+    [self performSelector:@selector(stopWritingVideo) withObject:nil afterDelay:5.0];
+}
+
+-(void)stopWritingVideo {
+    [self.captureView stopRecording];
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -362,6 +374,12 @@
     [[self.undoManager prepareWithInvocationTarget:self] executeInvocation:redoInvocation
                                                         withUndoInvocation:invocation];
     [invocation invoke];
+}
+
+#pragma mark - SLScreenCaptureViewDelegate
+
+-(void)recordingFinished:(NSString *)outputPath {
+    NSLog(@"outputPath %@", outputPath);
 }
 
 @end
