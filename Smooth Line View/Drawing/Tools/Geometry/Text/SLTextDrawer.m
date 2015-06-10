@@ -64,7 +64,9 @@
             NSDictionary *attributes = @{
                     NSFontAttributeName: self.font
             };
-            [self.text drawInRect:self.boundingBox withAttributes:attributes];
+            NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.text attributes:attributes];
+            [attributedString drawInRect:self.boundingBox];
+            // Alternative way is listed below
         } else {
             // Draw the bounding rect
             [self.strokeColor setStroke];
@@ -74,5 +76,40 @@
         }
     } CGContextRestoreGState(context);
 }
+
+/*
+- (void)draw
+{
+    // draw the text
+    // Flip the context coordinates, in iOS only.
+    CGContextTranslateCTM(context, 0, viewBounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+
+    // Set the text matrix.
+    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+
+    // Create a path which bounds the area where you will be drawing text.
+    // The path need not be rectangular.
+    CGMutablePathRef path = CGPathCreateMutable();
+
+    // In this simple example, initialize a rectangular path.
+    CGRect bounds = CGRectMake(viewBounds.origin.x, -viewBounds.origin.y, viewBounds.size.width, viewBounds.size.height);
+    CGPathAddRect(path, NULL, bounds );
+
+    // Create the framesetter with the attributed string.
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self.attributedText);
+
+    // Create a frame.
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
+
+    // Draw the specified frame in the given context.
+    CTFrameDraw(frame, context);
+
+    // Release the objects we used.
+    CFRelease(frame);
+    CFRelease(framesetter);
+    CFRelease(path);
+}
+ */
 
 @end

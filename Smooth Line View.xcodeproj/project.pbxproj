@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */; };
 		D561038866FD85B9188EE634 /* SLLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D56107A687D6D29D443F6690 /* SLLine.m */; };
 		D56103CFB473C84CC249048D /* SLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D561020E74329B7B73229CA2 /* SLViewController.xib */; };
+		D5610491D8412498AD051D32 /* UIBarButtonItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D56106C9E02DCAF75BC06C32 /* UIBarButtonItem+Additions.m */; };
 		D561060B8D85CDBB2726F56D /* SLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610048F094636BFBE2F4FE /* SLImage.m */; };
 		D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D56109A0AEEB71787E2815B0 /* SLBrush.m */; };
 		D5610871E2544F0F603EAD35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D561080574F360639D9813E3 /* AppDelegate.m */; };
@@ -52,6 +53,7 @@
 		D56102B30C914F4FD3861A37 /* SLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLImage.h; sourceTree = "<group>"; };
 		D56102EAE8BEAF39DE0731CA /* SLBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBrush.h; sourceTree = "<group>"; };
 		D5610368F74AD354F8A2E0C4 /* SLRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRectangle.m; sourceTree = "<group>"; };
+		D56106C9E02DCAF75BC06C32 /* UIBarButtonItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Additions.m"; sourceTree = "<group>"; };
 		D561076540F91B0589A0FBCA /* SLEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLEraser.m; sourceTree = "<group>"; };
 		D5610774B8B48A45004039D3 /* SLGeometryPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLGeometryPrimitive.m; sourceTree = "<group>"; };
 		D56107A687D6D29D443F6690 /* SLLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLine.m; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		D561080574F360639D9813E3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D5610821930034C24166B299 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		D561083F6B54AADF142CB62A /* SLSmoothLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSmoothLineView.m; sourceTree = "<group>"; };
+		D56108DB747CCEE4AA137700 /* UIBarButtonItem+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Additions.h"; sourceTree = "<group>"; };
 		D56109A0AEEB71787E2815B0 /* SLBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBrush.m; sourceTree = "<group>"; };
 		D56109A3C17621744E629E2E /* SLEllipse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLEllipse.h; sourceTree = "<group>"; };
 		D5610ACB9DED9CA97B925A42 /* SLSmoothLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSmoothLineView.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 			children = (
 				D5610C00B1B343E8FC3DA81B /* UIView+Additions.h */,
 				D5610821930034C24166B299 /* UIView+Additions.m */,
+				D56106C9E02DCAF75BC06C32 /* UIBarButtonItem+Additions.m */,
+				D56108DB747CCEE4AA137700 /* UIBarButtonItem+Additions.h */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -304,7 +309,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SL;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = dataart;
 				TargetAttributes = {
 					6B93BE6913F3374200DFAB23 = {
@@ -313,7 +318,7 @@
 				};
 			};
 			buildConfigurationList = 6B93BE6413F3374100DFAB23 /* Build configuration list for PBXProject "Smooth Line View" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -362,6 +367,7 @@
 				D5610ED52D0ABC914CDB9A6B /* SLEllipse.m in Sources */,
 				D56109D7B9CAA29047B59CC7 /* SLRectangle.m in Sources */,
 				D561060B8D85CDBB2726F56D /* SLImage.m in Sources */,
+				D5610491D8412498AD051D32 /* UIBarButtonItem+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

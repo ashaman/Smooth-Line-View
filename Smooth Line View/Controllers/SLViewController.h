@@ -32,5 +32,5 @@
 #import <UIKit/UIKit.h>
 #import "SLSmoothLineView.h"
 
-@interface SLViewController : UIViewController
+@interface SLViewController : UINavigationController
 @end

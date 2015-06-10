@@ -8,3 +8,6 @@ The goal of this project is to create a UIView that can generate smooth lines fr
 Many thanks to [Ginamin](http://stackoverflow.com/users/431480/ginamin) for his elegant solution.
 
 The Smooth Line View code is licensed under the MIT License: [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)
+
+*Update 2*: Icons are taken from iconbird.com (Outline Icons by DesignContest)  and licensed under CC Attribution 3.0 [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/).
+

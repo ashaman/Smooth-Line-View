@@ -32,6 +32,7 @@
 #import "AppDelegate.h"
 
 #import "SLViewController.h"
+#import "SLMediaBoardViewController.h"
 
 @implementation AppDelegate
 
@@ -39,10 +40,7 @@
 {
     application.applicationSupportsShakeToEdit = YES;
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[SLViewController new]];
-    navigationController.navigationBarHidden = YES;
-    navigationController.toolbarHidden = NO;
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = [SLViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }

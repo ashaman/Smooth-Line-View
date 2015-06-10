@@ -14,13 +14,20 @@
 #import "SLRectangle.h"
 #import "SLEllipse.h"
 #import "SLImage.h"
+#import "UIBarButtonItem+Additions.h"
 
 @interface SLMediaBoardViewController()
+// Contexts and tools
 @property (strong, nonatomic) NSMapTable *toolContext;
 @property (strong, nonatomic) NSMutableArray *usedTools;
 @property (strong, nonatomic) UIColor *strokeColor;
+// Views
 @property (weak, nonatomic) UIImageView *backgroundImageView;
 @property (weak, nonatomic) SLSmoothLineView *canvasView;
+// Toolbar buttons
+@property (weak, nonatomic) UIBarButtonItem *undoItem;
+@property (weak, nonatomic) UIBarButtonItem *redoItem;
+// Sizes and drawing modes
 @property (assign, nonatomic) CGSize strokeSize;
 @property (assign, nonatomic) SLDrawingMode drawingMode;
 @property (assign, nonatomic) BOOL undoRedoInvoked;
@@ -83,19 +90,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     // Configuring toolbar items
     // Undo/redo tools
     UIBarButtonItem *undoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo
                                                                               target:self
                                                                               action:@selector(undoAction)];
+    self.undoItem = undoItem;
     UIBarButtonItem *redoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo
                                                                               target:self
                                                                               action:@selector(redoAction)];
+    self.redoItem = redoItem;
     // Tools - brush, eraser, text
     UIBarButtonItem *brushItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Brush"]
                                                                   style:UIBarButtonItemStylePlain
@@ -107,9 +111,53 @@
                                                                   target:self
                                                                   action:@selector(toolSelected:)];
     eraserItem.tag = SLEraserDrawing;
+    UIBarButtonItem *lineItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Line"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(toolSelected:)];
+    lineItem.tag = SLLineDrawing;
+    UIBarButtonItem *rectangleItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@""]
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(toolSelected:)];
+    rectangleItem.tag = SLRectangleDrawing;
+    UIBarButtonItem *ellipseItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Ellipse"]
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(toolSelected:)];
+    ellipseItem.tag = SLEllipseDrawing;
+    UIBarButtonItem *imageItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Image"]
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(toolSelected:)];
+    imageItem.tag = SLImageDrawing;
+    // Struts and springs
+    self.toolbarItems = @[
+            undoItem,
+            [UIBarButtonItem flexibleSpace],
+            redoItem,
+            [UIBarButtonItem flexibleSpace],
+            brushItem,
+            [UIBarButtonItem flexibleSpace],
+            lineItem,
+            [UIBarButtonItem flexibleSpace],
+            rectangleItem,
+            [UIBarButtonItem flexibleSpace],
+            ellipseItem,
+            [UIBarButtonItem flexibleSpace],
+            imageItem,
+            [UIBarButtonItem flexibleSpace],
+            eraserItem
+    ];
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.toolbarHidden = NO;
+    // Items config
+    [self updateUndoRedoItems];
+}
 
-
-    [self setToolbarItems:@[undoItem, redoItem, brushItem, eraserItem] animated:YES];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -143,6 +191,7 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self drawBasedOnTouches:touches commitDrawing:YES];
+    [self updateUndoRedoItems];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -164,12 +213,14 @@
 {
     self.undoRedoInvoked = YES;
     [self.undoManager undo];
+    [self updateUndoRedoItems];
 }
 
 - (void)redoAction
 {
     self.undoRedoInvoked = YES;
     [self.undoManager redo];
+    [self updateUndoRedoItems];
 }
 
 - (void)toolSelected:(UIBarButtonItem *)sender
@@ -178,6 +229,12 @@
 }
 
 #pragma mark - Helper methods
+
+- (void)updateUndoRedoItems
+{
+    self.undoItem.enabled = self.undoManager.canUndo;
+    self.redoItem.enabled = self.undoManager.canRedo;
+}
 
 - (void)setDrawingMode:(SLDrawingMode)drawingMode
 {

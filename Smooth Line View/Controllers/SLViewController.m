@@ -35,16 +35,11 @@
 
 @implementation SLViewController
 
-- (void)viewDidLoad
+- (instancetype)init
 {
-    [super viewDidLoad];
-    SLMediaBoardViewController *boardViewController = [SLMediaBoardViewController new];
-    [self addChildViewController:boardViewController];
-    [self.view addSubview:boardViewController.view];
-    [boardViewController.view pinToSuperview];
-    [boardViewController didMoveToParentViewController:self];
-
+    if ((self = [super initWithRootViewController:[SLMediaBoardViewController new]])) {
+    }
+    return self;
 }
-
 
 @end
