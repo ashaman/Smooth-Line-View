@@ -11,3 +11,6 @@ The Smooth Line View code is licensed under the MIT License: [http://opensource.
 
 *Update 2*: Icons are taken from iconbird.com (Outline Icons by DesignContest)  and licensed under CC Attribution 3.0 [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/).
 
+*Update 3*: Screen capturing mechanism is based on the following article: [http://codethink.no-ip.org/wordpress/archives/673](http://codethink.no-ip.org/wordpress/archives/673).
+Some ideas are taken from there: [https://github.com/coolstar/RecordMyScreen](https://github.com/coolstar/RecordMyScreen)
+

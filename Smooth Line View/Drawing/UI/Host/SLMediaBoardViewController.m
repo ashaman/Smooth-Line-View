@@ -167,15 +167,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"Media view is prepared for use");
-    
-    //capture 5 sec video 
+    NSLog(@"DEBUG: Media view is prepared for use");
+    //capture 120 sec video
     [self.captureView startRecording];
-    [self performSelector:@selector(stopWritingVideo) withObject:nil afterDelay:5.0];
-}
-
--(void)stopWritingVideo {
-    [self.captureView stopRecording];
+    [self.captureView performSelector:@selector(stopRecording) withObject:nil afterDelay:20.0];
 }
 
 - (BOOL)canBecomeFirstResponder

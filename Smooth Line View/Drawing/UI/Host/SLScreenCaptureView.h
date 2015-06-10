@@ -10,29 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 
 @protocol SLScreenCaptureViewDelegate <NSObject>
-
--(void)recordingFinished:(NSString *)outputPath;
-
+- (void)recordingFinished:(NSString *)outputPath;
 @end
 
-@interface SLScreenCaptureView : UIView {
-    //video writing
-    AVAssetWriter *videoWriter;
-    AVAssetWriterInput *videoWriterInput;
-    AVAssetWriterInputPixelBufferAdaptor *avAdaptor;
-    
-    //recording state
-    BOOL _recording;
-    NSDate *startedAt;
-    void* bitmapData;
-    
-}
-
--(BOOL)startRecording;
--(void)stopRecording;
-
-@property(retain) UIImage* currentScreen;
+@interface SLScreenCaptureView : UIView
 @property(assign) float frameRate;
 @property(nonatomic, weak) id<SLScreenCaptureViewDelegate> delegate;
-
+- (BOOL)startRecording;
+- (void)stopRecording;
 @end

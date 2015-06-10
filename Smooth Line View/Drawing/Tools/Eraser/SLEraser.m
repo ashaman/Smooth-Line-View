@@ -77,7 +77,11 @@
             }
         } else {
             // Continuous line
+#if INCREMENTAL_DRAWING
             CGContextAddPath(context, self.path);
+#else
+            CGContextAddPath(context, _fullPath);
+#endif
             CGContextSetLineCap(context, kCGLineCapRound);
             CGContextSetLineWidth(context, _lineWidth);
             CGContextStrokePath(context);
