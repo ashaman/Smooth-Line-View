@@ -114,6 +114,7 @@
 #endif
 }
 
+#if !INCREMENTAL_DRAWING
 - (void)updateBitmapWithInvalidation:(BOOL)redraw
 {
     // Image context
@@ -130,6 +131,7 @@
     self.fullImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 }
+#endif
 
 - (void)drawWithTools
 {

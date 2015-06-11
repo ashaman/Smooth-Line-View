@@ -47,9 +47,9 @@
 - (CGRect)boundingBox
 {
     return CGRectMake(MIN(_initialPoint.x, self.touchLocation.x),
-            MIN(_initialPoint.y, self.touchLocation.y),
-            FABS(_initialPoint.x - self.touchLocation.x),
-            FABS(_initialPoint.y - self.touchLocation.y));
+                      MIN(_initialPoint.y, self.touchLocation.y),
+                      FABS(_initialPoint.x - self.touchLocation.x),
+                      FABS(_initialPoint.y - self.touchLocation.y));
 }
 
 - (void)drawInContext:(CGContextRef)context

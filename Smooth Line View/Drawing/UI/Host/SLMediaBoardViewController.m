@@ -17,6 +17,14 @@
 #import "UIBarButtonItem+Additions.h"
 #import "SLScreenCaptureView.h"
 
+#ifndef FABS
+#ifdef __LP64__
+#define FABS fabs
+#else
+#define FABS fabsf
+#endif
+#endif
+
 @interface SLMediaBoardViewController() <SLScreenCaptureViewDelegate>
 // Contexts and tools
 @property (strong, nonatomic) NSMapTable *toolContext;
@@ -197,6 +205,7 @@
         CGPoint point = [touch locationInView:self.canvasView];
         [self.toolContext setObject:[self createToolWithControlPoint:point] forKey:touch];
     }
+
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -208,6 +217,7 @@
 {
     [self drawBasedOnTouches:touches commitDrawing:YES];
     [self updateUndoRedoItems];
+
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -310,8 +320,19 @@
         id<SLRasterTool> tool = [self.toolContext objectForKey:touch];
         tool.previousTouchLocation = [touch previousLocationInView:self.canvasView];
         tool.touchLocation = [touch locationInView:self.canvasView];
+
         tool.commitDrawing = commitDrawing;
+
+#if CLEANING_RECT_IN_CONTEXT
+        CGRect prevBox = CGRectMake(MIN(tool.boundingBox.origin.x, tool.previousTouchLocation.x) - self.strokeSize.width/2.0,
+                                    MIN(tool.boundingBox.origin.y, tool.previousTouchLocation.y) - self.strokeSize.width/2.0,
+                                    FABS(tool.boundingBox.origin.x - tool.previousTouchLocation.x) + self.strokeSize.width,
+                                    FABS(tool.boundingBox.origin.y - tool.previousTouchLocation.y) + self.strokeSize.width);
+        drawBox = CGRectUnion([tool boundingBox], prevBox);
+#else
         drawBox = CGRectUnion(drawBox, [tool boundingBox]);
+        
+#endif
         [tools addObject:tool];
     }
     if (!(CGRectIsEmpty(drawBox) || CGRectIsNull(drawBox))) {

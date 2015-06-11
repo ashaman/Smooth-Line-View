@@ -45,6 +45,7 @@ static inline CGPoint CGMidPoint(CGPoint p1, CGPoint p2) {
         _lineWidth = lineWidth;
         _lineColor = color;
         _fullPath = CGPathCreateMutable();
+
     }
     return self;
 }
@@ -77,6 +78,7 @@ static inline CGPoint CGMidPoint(CGPoint p1, CGPoint p2) {
         CGPathMoveToPoint(_path, NULL, self.bezierPoint1.x, self.bezierPoint1.y);
         CGPathAddQuadCurveToPoint(_path, NULL, self.bezierControlPoint.x, self.bezierControlPoint.y, self.bezierPoint2.x, self.bezierPoint2.y);
         CGPathAddPath(_fullPath, NULL, _path);
+        
     }
     return _path;
 }
@@ -110,6 +112,7 @@ static inline CGPoint CGMidPoint(CGPoint p1, CGPoint p2) {
             CGContextAddPath(context, self.path);
 #else
             CGContextAddPath(context, _fullPath);
+            NSLog(@"full redraw");
 #endif
             CGContextSetLineCap(context, kCGLineCapRound);
             CGContextSetLineWidth(context, _lineWidth);
@@ -118,6 +121,7 @@ static inline CGPoint CGMidPoint(CGPoint p1, CGPoint p2) {
             _path = nil;
         }
     } CGContextRestoreGState(context);
+
 }
 
 @end
