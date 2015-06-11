@@ -100,13 +100,15 @@
     [super viewDidLoad];
     // Configuring toolbar items
     // Undo/redo tools
-    UIBarButtonItem *undoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo
-                                                                              target:self
-                                                                              action:@selector(undoAction)];
+    UIBarButtonItem *undoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Undo"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(undoAction)];
     self.undoItem = undoItem;
-    UIBarButtonItem *redoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo
-                                                                              target:self
-                                                                              action:@selector(redoAction)];
+    UIBarButtonItem *redoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Redo"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(redoAction)];
     self.redoItem = redoItem;
     // Tools - brush, eraser, text
     UIBarButtonItem *brushItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Brush"]
@@ -124,7 +126,7 @@
                                                                 target:self
                                                                 action:@selector(toolSelected:)];
     lineItem.tag = SLLineDrawing;
-    UIBarButtonItem *rectangleItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@""]
+    UIBarButtonItem *rectangleItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Rectangle"]
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
                                                                      action:@selector(toolSelected:)];
@@ -139,6 +141,11 @@
                                                                  target:self
                                                                  action:@selector(toolSelected:)];
     imageItem.tag = SLImageDrawing;
+    UIBarButtonItem *textItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Text"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(toolSelected:)];
+    textItem.tag = SLTextDrawing;
     // Struts and springs
     self.toolbarItems = @[
             undoItem,
@@ -154,6 +161,8 @@
             ellipseItem,
             [UIBarButtonItem flexibleSpace],
             imageItem,
+            [UIBarButtonItem flexibleSpace],
+            textItem,
             [UIBarButtonItem flexibleSpace],
             eraserItem
     ];
@@ -293,6 +302,7 @@
 - (void)drawBasedOnTouches:(NSSet *)touches commitDrawing:(BOOL)commitDrawing
 {
     CGRect drawBox = CGRectNull;
+    // Sorting in order of timestamps to find the earliest committed tool
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES];
     id<NSFastEnumeration> allTouches = commitDrawing ? [touches sortedArrayUsingDescriptors:@[sortDescriptor]] : touches;
     NSMutableArray *tools = [NSMutableArray arrayWithCapacity:touches.count];

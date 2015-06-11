@@ -38,7 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5EF58F53189D8AF40024C782 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5EF58F53189D8AF40024C782 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		6B250CCF13FA2127002A5D9D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6B93BE6A13F3374200DFAB23 /* Smooth Line View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smooth Line View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B93BE6E13F3374200DFAB23 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -109,7 +109,6 @@
 		6B93BE5F13F3374100DFAB23 = {
 			isa = PBXGroup;
 			children = (
-				5EF58F53189D8AF40024C782 /* Default-568h@2x.png */,
 				6B93BE7413F3374200DFAB23 /* Smooth Line View */,
 				6B93BE6D13F3374200DFAB23 /* Frameworks */,
 				6B93BE6B13F3374200DFAB23 /* Products */,
@@ -154,6 +153,7 @@
 		6B93BE7513F3374200DFAB23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5EF58F53189D8AF40024C782 /* Default-568h@2x.png */,
 				6B93BE7613F3374200DFAB23 /* Smooth Line View-Info.plist */,
 				6B93BE7713F3374200DFAB23 /* InfoPlist.strings */,
 				6B93BE7A13F3374200DFAB23 /* main.m */,
