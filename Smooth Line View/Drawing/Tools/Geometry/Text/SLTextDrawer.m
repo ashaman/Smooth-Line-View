@@ -56,6 +56,11 @@
     }
     return self;
 }
+#if CLEANING_RECT_IN_CONTEXT
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)drawRect {
+    [self drawInContext:context];
+}
+#endif
 
 - (void)drawInContext:(CGContextRef)context
 {

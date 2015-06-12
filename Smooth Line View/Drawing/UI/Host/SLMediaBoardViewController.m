@@ -324,8 +324,8 @@
         tool.commitDrawing = commitDrawing;
 
 #if CLEANING_RECT_IN_CONTEXT
-        CGRect prevBox = CGRectMake(MIN(tool.boundingBox.origin.x, tool.previousTouchLocation.x) - self.strokeSize.width/2.0,
-                                    MIN(tool.boundingBox.origin.y, tool.previousTouchLocation.y) - self.strokeSize.width/2.0,
+        CGRect prevBox = CGRectMake(MIN(tool.boundingBox.origin.x, tool.previousTouchLocation.x) - self.strokeSize.width /2.0,
+                                    MIN(tool.boundingBox.origin.y, tool.previousTouchLocation.y) - self.strokeSize.width /2.0,
                                     FABS(tool.boundingBox.origin.x - tool.previousTouchLocation.x) + self.strokeSize.width,
                                     FABS(tool.boundingBox.origin.y - tool.previousTouchLocation.y) + self.strokeSize.width);
         drawBox = CGRectUnion([tool boundingBox], prevBox);
@@ -333,6 +333,7 @@
         drawBox = CGRectUnion(drawBox, [tool boundingBox]);
         
 #endif
+
         [tools addObject:tool];
     }
     if (!(CGRectIsEmpty(drawBox) || CGRectIsNull(drawBox))) {

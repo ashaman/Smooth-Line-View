@@ -22,4 +22,7 @@
 @property (assign, nonatomic) CGPoint touchLocation;
 @property (assign, nonatomic) BOOL commitDrawing;
 - (void)drawInContext:(CGContextRef)context;
+#if CLEANING_RECT_IN_CONTEXT
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)drawRect;
+#endif
 @end

@@ -80,7 +80,12 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
         [self.incrementalImage drawAtPoint:CGPointMake(0, 0)];
         [self.layer renderInContext:context];
+        
+#if CLEANING_RECT_IN_CONTEXT
+        [self drawWithToolsInRect:rect];
+#else
         [self drawWithTools];
+#endif
     }
 #else
     // Ordinary drawing mode - full image
@@ -141,6 +146,16 @@
         [tool drawInContext:context];
     }
 }
+
+#if CLEANING_RECT_IN_CONTEXT
+-(void)drawWithToolsInRect:(CGRect)drawRect {
+    // Drawing all primitives
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    for (id<SLRasterTool> tool in self.drawingTools) {
+        [tool drawInContext:context inRect:drawRect];
+    }
+}
+#endif
 
 - (void)clear
 {

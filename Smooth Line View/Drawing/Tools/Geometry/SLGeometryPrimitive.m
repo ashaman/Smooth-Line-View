@@ -58,4 +58,9 @@
     NSAssert(NO, @"Method %s should be overridden in subclasses", __PRETTY_FUNCTION__);
 }
 
+#if CLEANING_RECT_IN_CONTEXT
+- (void)drawInContext:(CGContextRef)context inRect:(CGRect)drawRect {
+    
+}
+#endif
 @end
