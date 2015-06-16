@@ -15,7 +15,13 @@
 #import "SLEllipse.h"
 #import "SLImage.h"
 #import "UIBarButtonItem+Additions.h"
+
+#import "CameraServer.h"
+
+#if CAPTURE_VIEW
 #import "SLScreenCaptureView.h"
+#endif
+
 
 #ifndef FABS
 #ifdef __LP64__
@@ -26,6 +32,7 @@
 #endif
 
 @interface SLMediaBoardViewController() <SLScreenCaptureViewDelegate>
+
 // Contexts and tools
 @property (strong, nonatomic) NSMapTable *toolContext;
 @property (strong, nonatomic) NSMutableArray *usedTools;
@@ -33,7 +40,9 @@
 // Views
 @property (weak, nonatomic) UIImageView *backgroundImageView;
 @property (weak, nonatomic) SLSmoothLineView *canvasView;
+#if CAPTURE_VIEW
 @property (weak, nonatomic) SLScreenCaptureView *captureView;
+#endif
 // Toolbar buttons
 @property (weak, nonatomic) UIBarButtonItem *undoItem;
 @property (weak, nonatomic) UIBarButtonItem *redoItem;
@@ -81,11 +90,14 @@
 {
     self.view = [UIView new];
     self.view.backgroundColor = [UIColor whiteColor];
+   
+#if CAPTURE_VIEW
     SLScreenCaptureView *captureView = [SLScreenCaptureView new];
     captureView.delegate = self;
     captureView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:captureView];
     [captureView pinToSuperview];
+#endif
     // Canvas view for drawing
     SLSmoothLineView *canvasView = [SLSmoothLineView new];
     canvasView.multipleTouchEnabled = YES;
@@ -94,12 +106,18 @@
     UIImageView *backgroundView = [UIImageView new];
     backgroundView.backgroundColor = [UIColor clearColor];
     // Adding subviews
+#if CAPTURE_VIEW
     [captureView addSubview:backgroundView];
-    [backgroundView pinToSuperview];
     [captureView addSubview:canvasView];
+    self.captureView = captureView;
+#else
+    [self.view addSubview:backgroundView];
+    [self.view addSubview:canvasView];
+#endif
+    
+    [backgroundView pinToSuperview];
     [canvasView pinToSuperview];
     self.backgroundImageView = backgroundView;
-    self.captureView = captureView;
     self.canvasView = canvasView;
 }
 
@@ -185,9 +203,17 @@
 {
     [super viewDidAppear:animated];
     NSLog(@"DEBUG: Media view is prepared for use");
+    
+    [[CameraServer server] startup];
+    
+    NSLog(@"URL is: %@", [[CameraServer server] getURL]);
+    
+    
+#if CAPTURE_VIEW
     //capture 120 sec video
     [self.captureView startRecording];
-    [self.captureView performSelector:@selector(stopRecording) withObject:nil afterDelay:20.0];
+ //temp!   [self.captureView performSelector:@selector(stopRecording) withObject:nil afterDelay:20.0];
+#endif
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -403,10 +429,15 @@
     [invocation invoke];
 }
 
+
+#if CAPTURE_VIEW
 #pragma mark - SLScreenCaptureViewDelegate
 
 -(void)recordingFinished:(NSString *)outputPath {
     NSLog(@"outputPath %@", outputPath);
 }
+#endif
+
+
 
 @end

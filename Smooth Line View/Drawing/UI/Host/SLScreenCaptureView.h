@@ -17,5 +17,5 @@
 @property(assign) float frameRate;
 @property(nonatomic, weak) id<SLScreenCaptureViewDelegate> delegate;
 - (BOOL)startRecording;
-- (void)stopRecording;
+//- (void)stopRecording;
 @end

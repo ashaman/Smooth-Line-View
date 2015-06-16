@@ -19,6 +19,14 @@
 		7F6162471B2734B100852446 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6162461B2734B100852446 /* CoreMedia.framework */; };
 		7F6162491B2734C300852446 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6162481B2734C300852446 /* AVFoundation.framework */; };
 		7F61624B1B2734CF00852446 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F61624A1B2734CF00852446 /* AssetsLibrary.framework */; };
+		7FA4C1D61B3002E5002EE5E4 /* RTSPClientConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1D11B3002E5002EE5E4 /* RTSPClientConnection.mm */; };
+		7FA4C1D71B3002E5002EE5E4 /* RTSPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1D31B3002E5002EE5E4 /* RTSPMessage.m */; };
+		7FA4C1D81B3002E5002EE5E4 /* RTSPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1D51B3002E5002EE5E4 /* RTSPServer.m */; };
+		7FA4C1E11B3002F1002EE5E4 /* AVEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1DA1B3002F1002EE5E4 /* AVEncoder.mm */; };
+		7FA4C1E21B3002F1002EE5E4 /* MP4Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1DC1B3002F1002EE5E4 /* MP4Atom.m */; };
+		7FA4C1E31B3002F1002EE5E4 /* NALUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1DD1B3002F1002EE5E4 /* NALUnit.cpp */; };
+		7FA4C1E41B3002F1002EE5E4 /* VideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1E01B3002F1002EE5E4 /* VideoEncoder.m */; };
+		7FA4C1E71B30030D002EE5E4 /* CameraServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4C1E61B30030D002EE5E4 /* CameraServer.m */; };
 		D561005F322D94543107BB0E /* SLGeometryPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610774B8B48A45004039D3 /* SLGeometryPrimitive.m */; };
 		D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5610CFC8B5158A6DE4F7F24 /* SLViewController.m */; };
 		D561038866FD85B9188EE634 /* SLLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D56107A687D6D29D443F6690 /* SLLine.m */; };
@@ -54,6 +62,22 @@
 		7F6162461B2734B100852446 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7F6162481B2734C300852446 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7F61624A1B2734CF00852446 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		7FA4C1D01B3002E5002EE5E4 /* RTSPClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTSPClientConnection.h; path = Streaming/RTSP/RTSPClientConnection.h; sourceTree = "<group>"; };
+		7FA4C1D11B3002E5002EE5E4 /* RTSPClientConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RTSPClientConnection.mm; path = Streaming/RTSP/RTSPClientConnection.mm; sourceTree = "<group>"; };
+		7FA4C1D21B3002E5002EE5E4 /* RTSPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTSPMessage.h; path = Streaming/RTSP/RTSPMessage.h; sourceTree = "<group>"; };
+		7FA4C1D31B3002E5002EE5E4 /* RTSPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTSPMessage.m; path = Streaming/RTSP/RTSPMessage.m; sourceTree = "<group>"; };
+		7FA4C1D41B3002E5002EE5E4 /* RTSPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTSPServer.h; path = Streaming/RTSP/RTSPServer.h; sourceTree = "<group>"; };
+		7FA4C1D51B3002E5002EE5E4 /* RTSPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTSPServer.m; path = Streaming/RTSP/RTSPServer.m; sourceTree = "<group>"; };
+		7FA4C1D91B3002F1002EE5E4 /* AVEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AVEncoder.h; path = Streaming/AVEncoder/AVEncoder.h; sourceTree = "<group>"; };
+		7FA4C1DA1B3002F1002EE5E4 /* AVEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AVEncoder.mm; path = Streaming/AVEncoder/AVEncoder.mm; sourceTree = "<group>"; };
+		7FA4C1DB1B3002F1002EE5E4 /* MP4Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MP4Atom.h; path = Streaming/AVEncoder/MP4Atom.h; sourceTree = "<group>"; };
+		7FA4C1DC1B3002F1002EE5E4 /* MP4Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MP4Atom.m; path = Streaming/AVEncoder/MP4Atom.m; sourceTree = "<group>"; };
+		7FA4C1DD1B3002F1002EE5E4 /* NALUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NALUnit.cpp; path = Streaming/AVEncoder/NALUnit.cpp; sourceTree = "<group>"; };
+		7FA4C1DE1B3002F1002EE5E4 /* NALUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NALUnit.h; path = Streaming/AVEncoder/NALUnit.h; sourceTree = "<group>"; };
+		7FA4C1DF1B3002F1002EE5E4 /* VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoEncoder.h; path = Streaming/AVEncoder/VideoEncoder.h; sourceTree = "<group>"; };
+		7FA4C1E01B3002F1002EE5E4 /* VideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoEncoder.m; path = Streaming/AVEncoder/VideoEncoder.m; sourceTree = "<group>"; };
+		7FA4C1E51B30030D002EE5E4 /* CameraServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraServer.h; path = Streaming/CameraServer.h; sourceTree = "<group>"; };
+		7FA4C1E61B30030D002EE5E4 /* CameraServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraServer.m; path = Streaming/CameraServer.m; sourceTree = "<group>"; };
 		D5610048F094636BFBE2F4FE /* SLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLImage.m; sourceTree = "<group>"; };
 		D5610077D6171FBB2A56542A /* SLTextDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTextDrawer.h; sourceTree = "<group>"; };
 		D5610106C43D8A4B6EDF334A /* SLMediaBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMediaBoardViewController.m; sourceTree = "<group>"; };
@@ -141,6 +165,8 @@
 		6B93BE7413F3374200DFAB23 /* Smooth Line View */ = {
 			isa = PBXGroup;
 			children = (
+				7FA4C1CF1B3002D8002EE5E4 /* AVEncoder */,
+				7FA4C1CE1B3002CE002EE5E4 /* RTSP */,
 				6B93BE7513F3374200DFAB23 /* Supporting Files */,
 				D5610470CAE71E8F9A101137 /* Drawing */,
 				D5610CE9F05954E1D27BD948 /* Controllers */,
@@ -162,6 +188,36 @@
 				D56107AEA868A2366AFC848B /* AppDelegate.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FA4C1CE1B3002CE002EE5E4 /* RTSP */ = {
+			isa = PBXGroup;
+			children = (
+				7FA4C1D01B3002E5002EE5E4 /* RTSPClientConnection.h */,
+				7FA4C1D11B3002E5002EE5E4 /* RTSPClientConnection.mm */,
+				7FA4C1D21B3002E5002EE5E4 /* RTSPMessage.h */,
+				7FA4C1D31B3002E5002EE5E4 /* RTSPMessage.m */,
+				7FA4C1D41B3002E5002EE5E4 /* RTSPServer.h */,
+				7FA4C1D51B3002E5002EE5E4 /* RTSPServer.m */,
+			);
+			name = RTSP;
+			sourceTree = "<group>";
+		};
+		7FA4C1CF1B3002D8002EE5E4 /* AVEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				7FA4C1E51B30030D002EE5E4 /* CameraServer.h */,
+				7FA4C1E61B30030D002EE5E4 /* CameraServer.m */,
+				7FA4C1D91B3002F1002EE5E4 /* AVEncoder.h */,
+				7FA4C1DA1B3002F1002EE5E4 /* AVEncoder.mm */,
+				7FA4C1DB1B3002F1002EE5E4 /* MP4Atom.h */,
+				7FA4C1DC1B3002F1002EE5E4 /* MP4Atom.m */,
+				7FA4C1DD1B3002F1002EE5E4 /* NALUnit.cpp */,
+				7FA4C1DE1B3002F1002EE5E4 /* NALUnit.h */,
+				7FA4C1DF1B3002F1002EE5E4 /* VideoEncoder.h */,
+				7FA4C1E01B3002F1002EE5E4 /* VideoEncoder.m */,
+			);
+			name = AVEncoder;
 			sourceTree = "<group>";
 		};
 		D56100A10ECDE8CA6F96C4E2 /* Categories */ = {
@@ -375,18 +431,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B93BE7B13F3374200DFAB23 /* main.m in Sources */,
+				7FA4C1D61B3002E5002EE5E4 /* RTSPClientConnection.mm in Sources */,
 				D5610871E2544F0F603EAD35 /* AppDelegate.m in Sources */,
 				D561017172362A2E9A9BC0B5 /* SLViewController.m in Sources */,
+				7FA4C1E21B3002F1002EE5E4 /* MP4Atom.m in Sources */,
 				D5610850674C9EB7535A6AE8 /* SLBrush.m in Sources */,
 				D56108D294FFAF9F5229FD33 /* SLEraser.m in Sources */,
 				D5610E507BF34B04436134B7 /* SLSmoothLineView.m in Sources */,
 				D5610DC94192B00918838E48 /* SLMediaBoardViewController.m in Sources */,
+				7FA4C1E11B3002F1002EE5E4 /* AVEncoder.mm in Sources */,
 				D5610EB10D83D09DA37E10F9 /* UIView+Additions.m in Sources */,
 				D561005F322D94543107BB0E /* SLGeometryPrimitive.m in Sources */,
 				D5610E3DD8F3182DE3FD0D4D /* SLTextDrawer.m in Sources */,
 				D561038866FD85B9188EE634 /* SLLine.m in Sources */,
 				D5610ED52D0ABC914CDB9A6B /* SLEllipse.m in Sources */,
+				7FA4C1E41B3002F1002EE5E4 /* VideoEncoder.m in Sources */,
 				D56109D7B9CAA29047B59CC7 /* SLRectangle.m in Sources */,
+				7FA4C1E71B30030D002EE5E4 /* CameraServer.m in Sources */,
+				7FA4C1D81B3002E5002EE5E4 /* RTSPServer.m in Sources */,
+				7FA4C1D71B3002E5002EE5E4 /* RTSPMessage.m in Sources */,
+				7FA4C1E31B3002F1002EE5E4 /* NALUnit.cpp in Sources */,
 				7F6162431B27345900852446 /* SLScreenCaptureView.m in Sources */,
 				D561060B8D85CDBB2726F56D /* SLImage.m in Sources */,
 				D5610491D8412498AD051D32 /* UIBarButtonItem+Additions.m in Sources */,
@@ -422,6 +486,7 @@
 					"$(inherited)",
 					"CLEANING_RECT_IN_CONTEXT=1",
 					"DEBUG=1",
+					"CAPTURE_VIEW=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;

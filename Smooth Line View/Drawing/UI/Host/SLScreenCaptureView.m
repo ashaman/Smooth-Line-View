@@ -8,6 +8,7 @@
 
 #import "SLScreenCaptureView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CameraServer.h"
 
 @interface SLScreenCaptureView()
 @property (strong, nonatomic) CADisplayLink *displayLink;
@@ -71,7 +72,7 @@
 }
 
 #pragma mark - Helpers - video drawing
-
+/*
 - (void)writeVideoFrame:(UIImage *)frame atTime:(CMTime)time
 {
     if (![self.videoWriterInput isReadyForMoreMediaData]) {
@@ -101,7 +102,7 @@
         CGImageRelease(cgImage);
     }
 }
-
+*/
 #pragma mark - Rendering
 
 - (void)screenUpdated:(CADisplayLink *)timer
@@ -112,13 +113,19 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
         [self.layer renderInContext:context];
         UIImage *capturedFrame = UIGraphicsGetImageFromCurrentImageContext();
+
+        
         UIGraphicsEndImageContext();
+
         dispatch_async(self.videoHandlingQueue, ^{
             NSTimeInterval millisElapsed = [[NSDate date] timeIntervalSinceDate:this.startedAt] * 1000.0;
-            [this writeVideoFrame:capturedFrame atTime:CMTimeMake((int64_t) round(millisElapsed), 1000)];
+           // [this writeVideoFrame:capturedFrame atTime:CMTimeMake((int64_t) round(millisElapsed), 1000)];
+            [[CameraServer server] passImageToEncoder:capturedFrame atTime:CMTimeMake((int64_t) round(millisElapsed), 1000)];
         });
+        
     }
 }
+/*
 
 - (NSURL*) tempFileURL {
     NSString* outputPath = [[NSString alloc] initWithFormat:@"%@/%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0], @"output.mp4"];
@@ -164,7 +171,7 @@
     /**
     * Since image is scaled, sizes should be multiplied by the screen's scale
     */
-    NSDictionary* bufferAttributes = @{
+/*    NSDictionary* bufferAttributes = @{
             (__bridge id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32ARGB),
             (__bridge id)kCVPixelBufferBytesPerRowAlignmentKey: @(4 * self.frame.size.width * self.window.screen.scale),
             (__bridge id)kCVPixelBufferCGImageCompatibilityKey: @(YES),
@@ -219,7 +226,7 @@
     
     }
 }
-
+*/
 #pragma mark - Record management
 
 - (BOOL)startRecording
@@ -227,7 +234,7 @@
     BOOL result = NO;
     @synchronized(self) {
         if (! _recording) {
-            result = [self setUpWriter];
+          //  result = [self setUpWriter];
             self.startedAt = [NSDate date];
             self.displayLink = [CADisplayLink displayLinkWithTarget:self
                                                            selector:@selector(screenUpdated:)];
@@ -238,6 +245,7 @@
     }
     return result;
 }
+/*
 
 - (void)stopRecording
 {
@@ -249,6 +257,5 @@
         }
     }
 }
-
-
+*/
 @end
